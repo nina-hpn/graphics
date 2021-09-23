@@ -29,7 +29,7 @@ class CLine:
             const2 = (Dy - Dx) * 2
             p = const1 - Dx
             
-            plt.plot(x1, y1, 'ro')
+            plt.plot(x1, y1, 'bo')
 
             for i in range(0, Dx, 1):
                 if p < 0:
@@ -40,7 +40,7 @@ class CLine:
                     y1 += yStep
 
                 x1 += 1
-                plt.plot(x1, y1, 'ro')
+                plt.plot(x1, y1, 'bo')
 
             plt.show()
             return
@@ -57,7 +57,7 @@ class CLine:
 
             p = const1 - Dy
 
-            plt.plot(x1, y1, 'ro')
+            plt.plot(x1, y1, 'bo')
 
             for i in range(0, Dy, 1):
                 if p < 0:
@@ -67,7 +67,7 @@ class CLine:
                     x1 += xStep
                     
                 y1 += 1
-                plt.plot(x1, y1, 'ro')
+                plt.plot(x1, y1, 'bo')
 
             plt.show()
             return
@@ -89,6 +89,60 @@ class CLine:
 
 
     def LineDDA(self, color = 'red'):
+
         def Round(x):
             return int(x + 0.5)
-        return 0
+
+        def _LineDDAX(x1, y1, x2, y2):
+
+            plt.plot(x1, y1, 'ro')
+            a = (y2 - y1) / (x2 - x1)
+            y = y1
+
+            while x1 < x2:
+                x1 += 1
+                y += a
+                plt.plot(x1, Round(y), 'ro')
+
+            plt.show()
+            return
+
+
+        def _LineDDAY(x1, y1, x2, y2):
+
+            plt.plot(x1, y1, 'ro')
+            a = (x2 - x1) / (y2 - y1)
+            x = x1
+
+            while y1 < y2:
+                y1 += 1
+                x += a
+                plt.plot(Round(x), y1, 'ro')
+
+            plt.show()
+            return()
+
+        
+        x1, y1 = self.a
+        x2, y2 = self.b
+
+        if x1 == x2 and y1 == y2:
+            plt.plot(x1, y1, 'ro')
+            plt.show()
+            return
+
+        if abs(x1 - x2) > abs(y1 - y2):
+            if x1 < x2:
+                _LineDDAX(x1, y1, x2, y2)
+            else:
+                _LineDDAY(x2, y2, x1, y1)
+
+        else:
+            if y1 < y2:
+                _LineDDAY(x1, y1, x2, y2)
+            else:
+                _LineDDAY(x2, y2, x1, y1)
+
+
+
+
