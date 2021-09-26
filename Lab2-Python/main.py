@@ -13,5 +13,5 @@ Oy2 = CPoint(0, 700)
 Oy = CLine(Oy1, Oy2)
 Oy.LineBresenham()
 
-x = Circle(500)
+x = Circle(500, 200, 200)
 x.drawMidPoint()
