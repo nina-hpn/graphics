@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Lab3.h">
+    <ClInclude Include="Lab3-Ellipse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="framework.h">
@@ -27,10 +27,10 @@
     <ClInclude Include="MainFrm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lab3Doc.h">
+    <ClInclude Include="Lab3-EllipseDoc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lab3View.h">
+    <ClInclude Include="Lab3-EllipseView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
@@ -59,16 +59,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lab3.cpp">
+    <ClCompile Include="Lab3-Ellipse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainFrm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lab3Doc.cpp">
+    <ClCompile Include="Lab3-EllipseDoc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lab3View.cpp">
+    <ClCompile Include="Lab3-EllipseView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FileView.cpp">
@@ -92,18 +92,9 @@
     <ClCompile Include="Ellipse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CShape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CLine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CFill.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Lab3.rc">
+    <ResourceCompile Include="Lab3Ellipse.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
@@ -171,10 +162,10 @@
     <Image Include="res\userimages.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\Lab3Doc.ico">
+    <Image Include="res\Lab3-EllipseDoc.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\Lab3.ico">
+    <Image Include="res\Lab3-Ellipse.ico">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\Toolbar.bmp">
@@ -185,7 +176,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Lab3.rc2">
+    <None Include="res\Lab3Ellipse.rc2">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

@@ -67,7 +67,7 @@ void CLab3View::OnDraw(CDC* pDC)
 	Ellipse1 e(20, 30, 200, 200);
 
 	e.draw(pDC, red);
-	e.boundaryFill(pDC, yellow, red);
+	e.scanLineFill(pDC, yellow, red);
 
 
 }

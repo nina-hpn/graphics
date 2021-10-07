@@ -1,5 +1,4 @@
 #pragma once
-#include <list>
 class Ellipse1
 {
 private:
@@ -22,7 +21,7 @@ public:
         b = b1;
     }
 
-    void draw(CDC *pDC, COLORREF color);
+    void draw(CDC* pDC, COLORREF color);
     void boundaryFill(CDC* pDC, COLORREF fill_color, COLORREF boundary_color);
     void scanLineFill(CDC* pDC, COLORREF fill_color, COLORREF boundary_color);
 

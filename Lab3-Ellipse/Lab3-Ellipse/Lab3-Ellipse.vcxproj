@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{60A34559-BF4F-4870-B6F8-D3CA869D5704}</ProjectGuid>
+    <ProjectGuid>{F2A0BE47-F71F-4BFF-AF55-5E942457E154}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
-    <RootNamespace>Lab3</RootNamespace>
+    <RootNamespace>Lab3Ellipse</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -187,9 +187,9 @@
     <ClInclude Include="Ellipse.h" />
     <ClInclude Include="FileView.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Lab3.h" />
-    <ClInclude Include="Lab3Doc.h" />
-    <ClInclude Include="Lab3View.h" />
+    <ClInclude Include="Lab3-Ellipse.h" />
+    <ClInclude Include="Lab3-EllipseDoc.h" />
+    <ClInclude Include="Lab3-EllipseView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="OutputWnd.h" />
     <ClInclude Include="pch.h" />
@@ -199,15 +199,12 @@
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CFill.cpp" />
     <ClCompile Include="ClassView.cpp" />
-    <ClCompile Include="CLine.cpp" />
-    <ClCompile Include="CShape.cpp" />
     <ClCompile Include="Ellipse.cpp" />
     <ClCompile Include="FileView.cpp" />
-    <ClCompile Include="Lab3.cpp" />
-    <ClCompile Include="Lab3Doc.cpp" />
-    <ClCompile Include="Lab3View.cpp" />
+    <ClCompile Include="Lab3-Ellipse.cpp" />
+    <ClCompile Include="Lab3-EllipseDoc.cpp" />
+    <ClCompile Include="Lab3-EllipseView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="OutputWnd.cpp" />
     <ClCompile Include="pch.cpp">
@@ -220,7 +217,7 @@
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Lab3.rc" />
+    <ResourceCompile Include="Lab3Ellipse.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\classview.bmp" />
@@ -233,8 +230,8 @@
     <Image Include="res\fileview_hc.bmp" />
     <Image Include="res\file_view.ico" />
     <Image Include="res\file_view_hc.ico" />
-    <Image Include="res\Lab3.ico" />
-    <Image Include="res\Lab3Doc.ico" />
+    <Image Include="res\Lab3-Ellipse.ico" />
+    <Image Include="res\Lab3-EllipseDoc.ico" />
     <Image Include="res\menuimages.bmp" />
     <Image Include="res\menuimages_hc.bmp" />
     <Image Include="res\output_wnd.ico" />
@@ -250,7 +247,7 @@
     <Image Include="res\userimages.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Lab3.rc2" />
+    <None Include="res\Lab3Ellipse.rc2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
