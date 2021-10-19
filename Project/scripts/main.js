@@ -13,13 +13,16 @@ var init = () => {
     plane.name = 'plane-1';
 
 
+    var sphere = Sphere(2, 2, 5);
+    sphere.name = 's-1'
+
+
     box.position.y = box.geometry.parameters.height/2;
     plane.rotation.x = Math.PI/2;
 
     scene.add(box);  
+    scene.add(sphere);
     scene.add(plane);
-    
-    
 
     var camera = new THREE.PerspectiveCamera(
         75,
@@ -27,15 +30,21 @@ var init = () => {
         0.1, 
         1000
     );
-    camera.position.z = 5;
-    camera.position.y = 2;
-    camera.position.x = 1;
 
-    camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0xfffffff);
+    renderer.setSize(
+        window.innerWidth,
+        window.innerHeight
+    );
+
+    document.body.appendChild(renderer.domElement);
+
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.minDistance = 1;
+    controls.maxDistance = 1000;
+    camera.position.set( 5, 2, 1 );
+    controls.update();
 
     document.getElementById('webgl').appendChild(renderer.domElement);
     update(renderer, scene, camera)
@@ -61,6 +70,22 @@ function getBox(w, h, d, name=false) {
     }
 
     return mesh;
+}
+
+function Sphere(r, w, h) {
+    var geometry = new THREE.SphereGeometry(r, w, h);
+    
+    var material = new THREE.MeshBasicMaterial({
+        wireframe: true, 
+        color: 0xff9999
+    });
+
+    var sphere = new THREE.Mesh(
+        geometry,
+        material
+    );
+
+    return sphere;
 }
 
 function getPlane (size, name=false) {
@@ -158,8 +183,11 @@ function update(renderer, scene, camera) {
     );
 
     rotate('box-1', scene, x=0.01, z = 0.02);
-    scale('box-1', scene, 0.5, 0.2, 1)
-    position('box-1', scene, 0, 2, 3)
+    scale('box-1', scene, 0.5, 0.2, 1);
+    position('box-1', scene, 0, 2, 3);
+
+    position('s-1', scene, -2, 2, -2);
+    rotate('s-1', scene, x=0.01, z = 0.02);
 
     requestAnimationFrame(function() {
 
