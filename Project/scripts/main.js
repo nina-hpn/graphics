@@ -2,9 +2,14 @@
 var init = () => {
     var scene = new THREE.Scene();
 
-    //scene.fog = new THREE.FogExp2(0xfffffff, 0.2);
+    var  enableFog = false;
+    if (enableFog) {
 
-    var box = getBox(1, 1, 1);
+        scene.fog = new THREE.FogExp2(0xfffffff, 0.2);
+    }
+
+    //Shape objects
+    var box = getBox(1, 1, 1, color='rgb(120,120,120)');
     box.name = 'box-1'
     
 
@@ -16,10 +21,18 @@ var init = () => {
     var sphere = Sphere(2, 2, 5);
     sphere.name = 's-1'
 
+    var sphere2 = getSphere(0.05, 's-2', 'rgb(255,255,255)', material='basic')
 
+    // Lighting object
+    var pointLight = getPointLight(0xffffff, 1);
+    pointLight.position.y = 3
+
+    // Animation
     box.position.y = box.geometry.parameters.height/2;
     plane.rotation.x = Math.PI/2;
 
+    pointLight.add(sphere2);
+    scene.add(pointLight);
     scene.add(box);  
     scene.add(sphere);
     scene.add(plane);
@@ -37,6 +50,8 @@ var init = () => {
         window.innerWidth,
         window.innerHeight
     );
+    renderer.setClearColor('rgb(120, 120, 120)');
+
 
     document.body.appendChild(renderer.domElement);
 
@@ -54,12 +69,20 @@ var init = () => {
 
 // Creating shape function
 
-function getBox(w, h, d, name=false) {
+function getBox(w, h, d, name=false, material='phong', color=0xffffff) {
     var geometry = new THREE.BoxGeometry(w, h, d);
 
-    var material = new THREE.MeshBasicMaterial({
-        color: 0x00ff00
-    });
+    if (material == 'phong') {
+        
+        var material = new THREE.MeshPhongMaterial({
+            color: color
+        });
+    }
+    else if (material == 'basic') {
+        var material = new THREE.MeshBasicMaterial({
+            color: color
+        })
+    }
     var mesh = new THREE.Mesh(
         geometry,
         material
@@ -88,11 +111,36 @@ function Sphere(r, w, h) {
     return sphere;
 }
 
+function getSphere(size, name=false, color=0xffffff, material='phong', resolution=(24, 24)) {
+    var geometry = new THREE.SphereGeometry(size, resolution[0], resolution[1]);
+    if (material == 'phong') {
+        
+        var material = new THREE.MeshPhongMaterial({
+            color: color
+        });
+    }
+    else if (material == 'basic') {
+        var material = new THREE.MeshBasicMaterial({
+            color: color
+        })
+    }
+    var mesh = new THREE.Mesh(
+        geometry,
+        material
+    );
+
+    if( name != false) {
+        mesh.name = name
+    }
+
+    return mesh;
+}
+
 function getPlane (size, name=false) {
     var geometry = new THREE.PlaneGeometry(size, size);
 
-    var material = new THREE.MeshBasicMaterial({
-        color: 0xff0000,
+    var material = new THREE.MeshPhongMaterial({
+        color: 'rgb(120, 120, 120)',
         side: THREE.DoubleSide
     });
     var mesh = new THREE.Mesh(
@@ -127,6 +175,8 @@ function getHeart (x, y, name=false) {
     }
     var mesh = new THREE.Mesh( geometry, material ) ;
 }
+
+// Animation function
 
 function rotate(name, parent, x = 0, y = 0, z = 0) {
     /**
@@ -182,9 +232,9 @@ function update(renderer, scene, camera) {
         camera
     );
 
-    rotate('box-1', scene, x=0.01, z = 0.02);
     scale('box-1', scene, 0.5, 0.2, 1);
-    position('box-1', scene, 0, 2, 3);
+    rotate('box-1', scene, x=0.01, z = 0.02);
+    //position('box-1', scene, 0, 2, 3);
 
     position('s-1', scene, -2, 2, -2);
     rotate('s-1', scene, x=0.01, z = 0.02);
@@ -197,6 +247,14 @@ function update(renderer, scene, camera) {
 
         update(renderer, scene, camera);
     })
+}
+
+// Lighting function 
+
+function getPointLight(color, intensity) {
+    var light = new THREE.PointLight(color, intensity);
+
+    return light;
 }
 
 
